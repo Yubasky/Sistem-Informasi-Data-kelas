@@ -142,7 +142,7 @@ html, body {
     text-decoration: underline;
   }
   
-  .daftar-akun {
+  .kembali {
     align-self: flex-end;        
     background-color: #f0f0f0;    
     color: #333;
@@ -153,7 +153,7 @@ html, body {
     transition: 0.3s;
   }
   
-  .daftar-akun:hover {
+  .kembali:hover {
     background-color: #89a9d4;
     color: white;
   }

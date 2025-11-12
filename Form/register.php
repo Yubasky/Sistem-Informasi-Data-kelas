@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <head>
-  <title>Login Form</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Form | Register</title>
+  <link rel="stylesheet" href="style1.css">
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Login Form </h1>
+      <h1>Register Form </h1>
    
     </header>
 
@@ -21,7 +21,7 @@
           <input type="password" id="password" name="password" placeholder="Masukkan password" required>
 
           <button type="submit">Login</button>
-         <a class="daftar-akun" href="register.php">Daftar Akun</a>
+         <a class="kembali" href="login.php">Kembali ke halaman login</a>
       </section>
     </main>
 
