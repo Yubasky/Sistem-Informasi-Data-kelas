@@ -4,8 +4,33 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <head>
-        <title></title>
-    </head>
-    <h1>hello world</h1>
+  <div class="container">
+    <header>
+      <h1>Login Form </h1>
+      <nav>
+        <strong>
+        <a href="index.html">Home</a>
+        </strong>
+      </nav>      
+    </header>
+
+    <main>
+
+      <section class="tips-list">
+      <form action="login.php" method="POST" class="login-form">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Masukkan username" required>
+        
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+
+          <button type="submit">Login</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Yubasky</p>
+    </footer>
+  </div>
 </body>
+</html>
