@@ -83,9 +83,10 @@ header {
 .dashboard-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+    gap: 40px; /* sebelumnya 20px, ubah jadi 40px biar lebih renggang */
     margin-top: 40px;
 }
+
 
 .card {
     background-color: var(--white);
@@ -100,6 +101,10 @@ header {
     transform: translateY(-4px);
 }
 
+.card .btn {
+    margin-top: 15px; /* jarak antara <p> dan tombol */
+  }
+  
 .btn {
     display: inline-block;
     padding: 10px 20px;
