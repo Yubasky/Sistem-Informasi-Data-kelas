@@ -15,7 +15,7 @@
 }
 
 body {
-    background-image: url('PoliteknikNegeriMedan.jpeg');
+    background-image: url('../img/PoliteknikNegeriMedan.jpeg');
     background-color: var(--background-color);
     background-size: 1400px auto;
     background-repeat: no-repeat;

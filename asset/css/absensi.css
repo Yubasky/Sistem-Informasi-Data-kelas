@@ -1,0 +1,66 @@
+.absensi-container {
+    max-width: 600px;
+    margin: 80px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .absensi-container h1 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .absensi-options {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .absensi-option {
+    font-size: 1rem;
+  }
+  
+  .keterangan-group {
+    margin: 20px 0;
+    text-align: left;
+  }
+  
+  .keterangan-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .keterangan-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+    font-family: inherit;
+  }
+  
+  .btn-submit {
+    background-color: #4a6cf7;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: #3a56d4;
+  }
+  
+  .success-message {
+    display: none;
+    color: #2ecc71;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  

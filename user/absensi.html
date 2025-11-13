@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Absensi Kelas - User</title>
-  <link rel="stylesheet" href="style1.css">
-  <link rel="stylesheet" href="absensi.css">
+  <link rel="stylesheet" href="../asset/css/style1.css">
+  <link rel="stylesheet" href="../asset/css/absensi.css">
 </head>
 <body>
   <!-- Header -->
@@ -22,11 +22,11 @@
     </div>
   </header>
 
-  <!-- Main Absensi -->
+  <!-- Main -->
   <main>
     <div class="absensi-container">
       <h1>Absensi Kelas 🎓</h1>
-      <p>Silakan pilih kehadiran kamu untuk hari ini, Yuu~</p>
+      <p>Silakan pilih kehadiran kamu untuk hari ini</p>
 
       <form id="absensiForm">
         <div class="absensi-options">
@@ -44,6 +44,12 @@
           </label>
         </div>
 
+        <!-- Keterangan tambahan -->
+        <div class="keterangan-group">
+          <label for="keterangan">Keterangan (opsional, terutama untuk Sakit/Izin):</label>
+          <textarea id="keterangan" name="keterangan" rows="3" placeholder="Contoh: sakit demam, izin urusan keluarga..."></textarea>
+        </div>
+
         <button type="submit" class="btn-submit">Kirim Absensi</button>
         <p class="success-message" id="successMsg">✅ Absensi kamu berhasil dikirim!</p>
       </form>
@@ -57,6 +63,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="../asset/js/absensi.js"></script>
 </body>
 </html>
