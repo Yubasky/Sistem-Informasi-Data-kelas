@@ -121,3 +121,88 @@ header p {
 .btn:hover {
   background: #004182;
 }
+
+/* ===== ABSENSI ADMIN PAGE ===== */
+.absensi-section {
+  background: var(--white);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.absensi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.absensi-table th, .absensi-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.absensi-table th {
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: white;
+  font-size: 13px;
+}
+
+.status.hadir {
+  background: #28a745;
+}
+
+.status.sakit {
+  background: #ffc107;
+  color: #333;
+}
+
+.status.izin {
+  background: #17a2b8;
+}
+
+.status.alpa {
+  background: #dc3545;
+}
+
+.btn-edit {
+  padding: 6px 12px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-edit:hover {
+  background: #004182;
+}
+
+.table-actions .btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
