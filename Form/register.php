@@ -24,6 +24,7 @@
          <a class="kembali" href="login.php">Kembali ke halaman login</a>
       </section>
       <h1>Contoh</h1>
+      <br>
     </main>
 
     <footer>
