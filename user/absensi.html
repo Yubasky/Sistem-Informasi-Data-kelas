@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absensi Kelas - User</title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="absensi.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-flex">
+      <div class="logo">Data Kelas</div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="absensi.html" class="active">Absensi Kelas</a></li>
+          <li><a href="../login.html" class="logout">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Absensi -->
+  <main>
+    <div class="absensi-container">
+      <h1>Absensi Kelas 🎓</h1>
+      <p>Silakan pilih kehadiran kamu untuk hari ini, Yuu~</p>
+
+      <form id="absensiForm">
+        <div class="absensi-options">
+          <label class="absensi-option">
+            <input type="radio" name="status" value="Hadir" required> Hadir
+          </label>
+          <label class="absensi-option">
+            <input type="radio" name="status" value="Sakit"> Sakit
+          </label>
+          <label class="absensi-option">
+            <input type="radio" name="status" value="Izin"> Izin
+          </label>
+          <label class="absensi-option">
+            <input type="radio" name="status" value="Alpa"> Alpa
+          </label>
+        </div>
+
+        <button type="submit" class="btn-submit">Kirim Absensi</button>
+        <p class="success-message" id="successMsg">✅ Absensi kamu berhasil dikirim!</p>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Sistem Informasi Data Kelas. Semua hak dilindungi.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
