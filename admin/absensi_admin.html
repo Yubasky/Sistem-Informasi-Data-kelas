@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Absensi Kelas - Admin</title>
+  <link rel="stylesheet" href="../admin/admin1.css"/>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="sidebar">
+    <h2 class="logo">Data Kelas</h2>
+    <ul class="menu">
+      <li><a href="admin.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+      <li class="active"><a href="absensi_admin.html"><i data-lucide="clipboard-list"></i> Absensi Kelas</a></li>
+      <li><a href="uangkas.html"><i data-lucide="wallet"></i> Uang Kas</a></li>
+      <li class="logout"><a href="login.html"><i data-lucide="log-out"></i> Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>📋 Absensi Kelas</h1>
+      <p>Kelola dan pantau kehadiran mahasiswa di kelas.</p>
+    </header>
+
+    <section class="absensi-section">
+      <div class="table-header">
+        <h2>Data Absensi Mahasiswa</h2>
+        <div class="table-actions">
+          <button class="btn" id="exportBtn"><i data-lucide="download"></i> Export Laporan</button>
+        </div>
+      </div>
+
+      <table class="absensi-table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Tanggal</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="absensiBody">
+          <tr>
+            <td>1</td>
+            <td>2405181001</td>
+            <td>Rizky Alamsyah</td>
+            <td>13-11-2025</td>
+            <td><span class="status hadir">Hadir</span></td>
+            <td><button class="btn-edit">Edit</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>2405181002</td>
+            <td>Fitra Rahman</td>
+            <td>13-11-2025</td>
+            <td><span class="status izin">Izin</span></td>
+            <td><button class="btn-edit">Edit</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>2405181003</td>
+            <td>Yulia Sari</td>
+            <td>13-11-2025</td>
+            <td><span class="status alpa">Alpa</span></td>
+            <td><button class="btn-edit">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // simulasi tombol edit
+    const editButtons = document.querySelectorAll(".btn-edit");
+    editButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const newStatus = prompt("Ubah status ke (hadir/sakit/izin/alpa):");
+        if (!newStatus) return;
+        const td = btn.parentElement.previousElementSibling;
+        td.innerHTML = `<span class="status ${newStatus.toLowerCase()}">${newStatus.charAt(0).toUpperCase() + newStatus.slice(1)}</span>`;
+      });
+    });
+
+    // simulasi export
+    document.getElementById("exportBtn").addEventListener("click", () => {
+      alert("Laporan absensi berhasil diekspor!");
+    });
+  </script>
+</body>
+</html>
