@@ -15,7 +15,11 @@
 }
 
 body {
+    background-image: url('PoliteknikNegeriMedan.jpeg');
     background-color: var(--background-color);
+    background-size: 1400px auto;
+    background-repeat: no-repeat;
+    background-position: top center;
     color: var(--text-color);
     line-height: 1.6;
 }
