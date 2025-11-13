@@ -23,6 +23,7 @@
           <button type="submit">Login</button>
          <a class="kembali" href="login.php">Kembali ke halaman login</a>
       </section>
+      <h1>Contoh</h1>
     </main>
 
     <footer>
