@@ -1,0 +1,43 @@
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.form-container input {
+  padding: 10px;
+  width: 230px;
+  border-radius: 7px;
+  border: 1px solid #cfd6de;
+  font-size: 15px;
+  transition: 0.25s;
+}
+
+.form-container input:focus {
+  border-color: #1e3d58;
+  outline: none;
+  box-shadow: 0 0 6px rgba(30, 61, 88, 0.3);
+}
+
+/* Tombol utama */
+.btn {
+  padding: 10px 18px;
+  background: #1e3d58;
+  border: none;
+  color: #fff;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.25s;
+  font-size: 15px;
+}
+
+.btn-delete {
+  padding: 7px 13px;
+  background: #e53935;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
