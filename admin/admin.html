@@ -2,17 +2,29 @@
 <head>
   <title>Admin Dashboard - Data Kelas</title>
   <link rel="stylesheet" href="../asset/css/admin.css">
-  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   <div class="sidebar">
     <h2 class="logo">Data Kelas</h2>
     <ul class="menu">
-      <li class="active"><i data-lucide="layout-dashboard"></i> Dashboard</li>
-      <li><i data-lucide="clipboard-list"></i> Absensi Kelas</li>
-      <li><i data-lucide="wallet"></i> Uang Kas</li>
-      <li class="logout"><i data-lucide="log-out"></i> Logout</li>
+      <li class="active">
+        <img src="../asset/img/layout-dashboard.png" class="icon">
+        Dashboard
+      </li>
+      <li onclick="location.href='absensi_admin.html'">
+        <img src="../asset/img/clipboard-list.png" class="icon">
+        Absensi Kelas
+      </li>
+      <li onclick="location.href='uangkas.html'">
+        <img src="../asset/img/wallet.png" class="icon">
+        Uang Kas
+      </li>
+      <li onclick="location.href='../login.html'" class="logout">
+        <img src="../asset/img/log-out.png" class="icon">
+        Logout
+      </li>
     </ul>
+    
   </div>
 
   <div class="main">

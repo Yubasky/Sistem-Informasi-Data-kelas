@@ -5,16 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Absensi Kelas - Admin</title>
   <link rel="stylesheet" href="../asset/css/admin.css"/>
-  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   <div class="sidebar">
     <h2 class="logo">Data Kelas</h2>
     <ul class="menu">
-      <li><a href="admin.html"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
-      <li class="active"><a href="absensi_admin.html"><i data-lucide="clipboard-list"></i> Absensi Kelas</a></li>
-      <li><a href="uangkas.html"><i data-lucide="wallet"></i> Uang Kas</a></li>
-      <li class="logout"><a href="login.html"><i data-lucide="log-out"></i> Logout</a></li>
+      <li onclick="location.href='admin.html'">
+        <img src="../asset/img/layout-dashboard.png" class="icon">
+        Dashboard
+      </li>
+
+      <li class="active">
+        <img src="../asset/img/clipboard-list.png" class="icon">
+        Absensi Kelas
+      </li>
+
+      <li onclick="location.href='uang-kas.html'">
+        <img src="../asset/img/wallet.png" class="icon">
+        Uang Kas
+      </li>
+
+      <li onclick="location.href='../login.html'" class="logout">
+        <img src="../asset/img/log-out.png" class="icon">
+        Logout
+      </li>
     </ul>
   </div>
 
@@ -74,7 +88,6 @@
   </div>
 
   <script>
-    lucide.createIcons();
 
     // simulasi tombol edit
     const editButtons = document.querySelectorAll(".btn-edit");

@@ -7,26 +7,29 @@
   <link rel="stylesheet" href="../asset/css/style1.css">
 </head>
 <body>
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div>
-      <div class="logo">Data Kelas</div>
-      <ul class="menu">
-        <li class="active"><i>🏠</i> Dashboard</li>
-        <li onclick="location.href='absensi.html'"><i>📝</i> Absensi Kelas</li>
-      </ul>
-    </div>
-    <ul class="menu">
-      <li class="logout" onclick="location.href='../login.html'"><i>🚪</i> Logout</li>
-    </ul>
-  </aside>
 
-  <!-- Main content -->
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2 class="logo">Data Kelas</h2>
+    <ul class="menu">
+      <li class="active" onclick="location.href='index.html'">
+        <img src="../asset/img/layout-dashboard.png" class="icon"> Dashboard
+      </li>
+      <li onclick="location.href='absensi.html'">
+        <img src="../asset/img/clipboard-list.png" class="icon"> Absensi Kelas
+      </li>
+      <li class="logout" onclick="location.href='../login.html'">
+        <img src="../asset/img/log-out.png" class="icon"> Logout
+      </li>
+    </ul>
+  </div>
+  
+
   <main class="main">
     <header>
       <h1>Selamat Datang, <span id="username">Mahasiswa</span> 🎓</h1>
-      <p>Kelola kehadiranmu dan pantau data absensi dengan mudah</p>
     </header>
+    <br><br>
 
     <section class="cards">
       <div class="card">
@@ -42,5 +45,12 @@
       </div>
     </section>
   </main>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+
 </body>
 </html>

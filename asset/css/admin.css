@@ -30,7 +30,6 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .logo {
@@ -47,7 +46,7 @@ body {
 .menu li {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   padding: 12px 15px;
   margin-bottom: 10px;
   border-radius: 8px;
@@ -55,6 +54,13 @@ body {
   cursor: pointer;
   transition: background 0.2s;
 }
+
+.menu li .icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
 
 .menu li.active,
 .menu li:hover {
