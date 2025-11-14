@@ -15,6 +15,11 @@
 }
 
 body {
+    background-image: url('../img/PoliteknikNegeriMedan.jpeg');
+      background-color: var(--background-color);
+      background-size: 1400px auto;
+      background-repeat: no-repeat;
+      background-position: top center;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -24,10 +29,11 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    color: black;
+    
 }
 
-/* Header Styles */
-header {
+    header {
     padding: 20px 0;
     background-color: var(--white);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -187,20 +193,21 @@ input[type="password"]:focus {
     position: relative;
 }
 
-.divider::before {
+.divider span {
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+    font-weight: 500;
+}
+
+.divider::after {
     content: "";
     position: absolute;
-    top: 50%;
+    bottom: 1; 
     left: 0;
     right: 0;
     height: 1px;
     background-color: var(--border-color);
-}
-
-.divider span {
-    background-color: var(--white);
-    padding: 0 10px;
-    color: #666;
 }
 
 .register-link {
@@ -223,6 +230,9 @@ footer {
     padding: 20px 0;
     color: #666;
     font-size: 14px;
+    background-color: var(--white);
+    box-shadow: 0 -1px 3px rgba(0,0,0,0.1);
+    margin-top: 40px;
 }
 
 /* Responsive Styles */

@@ -1,48 +1,46 @@
 <!DOCTYPE html>
+<html lang="id">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard User - Data Kelas</title>
   <link rel="stylesheet" href="../asset/css/style1.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container header-flex">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div>
       <div class="logo">Data Kelas</div>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="active">Dashboard</a></li>
-          <li><a href="absensi.html">Absensi Kelas</a></li>
-          <li><a href="../login.html" class="logout">Logout</a></li>
-        </ul>
-      </nav>
+      <ul class="menu">
+        <li class="active"><i>🏠</i> Dashboard</li>
+        <li onclick="location.href='absensi.html'"><i>📝</i> Absensi Kelas</li>
+      </ul>
     </div>
-  </header>
+    <ul class="menu">
+      <li class="logout" onclick="location.href='../login.html'"><i>🚪</i> Logout</li>
+    </ul>
+  </aside>
 
-  <main class="main-content">
-    <div class="container">
-      <div class="welcome-text">
-        <h1>Selamat Datang, <span id="username">Mahasiswa</span> 🎓</h1>
+  <!-- Main content -->
+  <main class="main">
+    <header>
+      <h1>Selamat Datang, <span id="username">Mahasiswa</span> 🎓</h1>
+      <p>Kelola kehadiranmu dan pantau data absensi dengan mudah</p>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <h2>📋 Absensi Kelas</h2>
+        <p>Isi kehadiran kamu untuk hari ini, dan pastikan datanya tersimpan dengan benar.</p>
+        <a href="absensi.html" class="btn">Isi Absensi</a>
       </div>
 
-      <div class="dashboard-cards">
-        <div class="card">
-          <h2>📋 Absensi Kelas</h2>
-          <p>Isi kehadiran kamu untuk hari ini, dan pastikan datanya tersimpan dengan benar.</p>
-          <a href="absensi.html" class="btn">Isi Absensi</a>
-        </div>
-
-        <div class="card">
-          <h2>👋 Logout</h2>
-          <p>Terima kasih sudah menggunakan sistem Data Kelas.</p>
-          <a href="login.html" class="btn btn-danger">Logout</a>
-        </div>
+      <div class="card">
+        <h2>👋 Logout</h2>
+        <p>Terima kasih sudah menggunakan sistem Data Kelas.</p>
+        <a href="../login.html" class="btn btn-danger">Logout</a>
       </div>
-    </div>
+    </section>
   </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Sistem Informasi Data Kelas. Semua hak dilindungi.</p>
-    </div>
-  </footer>
 </body>
 </html>

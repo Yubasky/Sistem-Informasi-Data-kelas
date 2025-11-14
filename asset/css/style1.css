@@ -1,137 +1,208 @@
 :root {
-    --primary-color: #0a66c2;
-    --text-color: #333;
-    --border-color: #d0d0d0;
-    --background-color: #f3f2ef;
-    --white: #ffffff;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-* {
+    --primary: #0a66c2;
+    --bg: #f4f5f7;
+    --white: #fff;
+    --text: #333;
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-image: url('../img/PoliteknikNegeriMedan.jpeg');
-    background-color: var(--background-color);
-    background-size: 1400px auto;
-    background-repeat: no-repeat;
-    background-position: top center;
-    color: var(--text-color);
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-header {
-    padding: 20px 0;
-    background-color: var(--white);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-/* ini tambahan style dashboard Yuu */
-.header-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
-
-.nav-menu li a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-menu li a:hover,
-.nav-menu li a.active {
-    color: var(--primary-color);
-}
-
-.logout {
-    color: #d93025;
-}
-
-.logout:hover {
-    color: #a8241d;
-}
-
-.main-content {
-    padding: 60px 0;
-    text-align: center;
-}
-
-.dashboard-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 40px; /* sebelumnya 20px, ubah jadi 40px biar lebih renggang */
-    margin-top: 40px;
-}
-
-
-.card {
-    background-color: var(--white);
-    box-shadow: var(--shadow);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-}
-
-.card .btn {
-    margin-top: 15px; /* jarak antara <p> dan tombol */
+    font-family: 'Segoe UI', Tahoma, sans-serif;
   }
   
-.btn {
+  body {
+    display: flex;
+    background-image: url('../img/PoliteknikNegeriMedan.jpeg');
+      background-color: var(--background-color);
+      background-size: 1400px auto;
+      background-repeat: no-repeat;
+      background-position: top center;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 230px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 30px;
+  }
+  
+  .menu {
+    list-style: none;
+  }
+  
+  .menu li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .menu li.active,
+  .menu li:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+  
+  .menu li i {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .menu li.logout {
+    color: #d93025;
+    margin-top: auto;
+  }
+  
+  .main {
+    flex: 1;
+    padding: 40px;
+  }
+  
+  header h1 {
+    color: var(--primary);
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+  
+  header p {
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  .cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    flex: 1 1 300px;
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .btn {
     display: inline-block;
+    margin-top: 15px;
     padding: 10px 20px;
-    background-color: var(--primary-color);
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 24px;
+    font-weight: 600;
+  }
+  
+  .btn:hover {
+    background: #004182;
+  }
+  
+  /* ===== ABSENSI ADMIN PAGE ===== */
+  .absensi-section {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+  
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .absensi-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  
+  .absensi-table th, .absensi-table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .absensi-table th {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+  }
+  
+  .status {
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    color: white;
+    font-size: 13px;
+  }
+  
+  .status.hadir {
+    background: #28a745;
+  }
+  
+  .status.sakit {
+    background: #ffc107;
+    color: #333;
+  }
+  
+  .status.izin {
+    background: #17a2b8;
+  }
+  
+  .status.alpa {
+    background: #dc3545;
+  }
+  
+  .btn-edit {
+    padding: 6px 12px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .btn-edit:hover {
+    background: #004182;
+  }
+  
+  .table-actions .btn {
+    background: var(--primary);
     color: white;
     border: none;
-    border-radius: 24px;
-    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #004182;
-}
-
-.btn-danger {
-    background-color: #d93025;
-}
-
-.btn-danger:hover {
-    background-color: #a8241d;
-}
-
-footer {
-    text-align: center;
-    padding: 20px 0;
-    color: #666;
-    font-size: 14px;
-}
+  }
