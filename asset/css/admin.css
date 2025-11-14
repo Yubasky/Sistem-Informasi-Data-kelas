@@ -15,7 +15,7 @@
 
 body {
   display: flex;
-  background-image: url('../img/PoliteknikNegeriMedan.jpeg');
+  background-image: url('../img/pexels-jessbaileydesign-1097930.jpg');
     background-color: var(--background-color);
     background-size: 1400px auto;
     background-repeat: no-repeat;
@@ -25,12 +25,16 @@ body {
 
 .sidebar {
   width: 230px;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.25); /* transparan */
+  backdrop-filter: blur(12px);            /* efek blur */
+  -webkit-backdrop-filter: blur(12px);    /* untuk Safari */
   box-shadow: var(--shadow);
   padding: 20px;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid rgba(255,255,255,0.35); /* garis tepi biar lebih clean */
 }
+
 
 .logo {
   font-size: 22px;
