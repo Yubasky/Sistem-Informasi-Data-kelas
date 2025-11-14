@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #0a66c2;
+    --primary-color: #4f555c;
     --text-color: #333;
     --border-color: #d0d0d0;
     --background-color: #f3f2ef;
@@ -15,14 +15,12 @@
 }
 
 body {
-    background-image: url('../img/PoliteknikNegeriMedan.jpeg');
-      background-color: var(--background-color);
-      background-size: 1400px auto;
-      background-repeat: no-repeat;
-      background-position: top center;
+    background-image: url('../img/Abstract\ white\ shapes\ background\ _\ Premium\ Vector\ \(1\).jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
 }
 
 .container {
@@ -162,7 +160,7 @@ input[type="password"]:focus {
 }
 
 .btn:hover {
-    background-color: #004182;
+    background-color: #000000;
 }
 
 .user-type-selector {
