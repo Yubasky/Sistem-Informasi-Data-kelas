@@ -96,6 +96,7 @@
                 <div class="register-link">
                     Sudah punya akun? <a href="#" id="goToLogin">Masuk di sini</a>
                 </div>
+                
             </div>
         </div>
     </main>
@@ -105,6 +106,5 @@
             <p>&copy; 2025 Kelompok-1</p>
         </div>
     </footer>
-    <script src="asset/js/script.js"></script>
 </body>
 </html>
