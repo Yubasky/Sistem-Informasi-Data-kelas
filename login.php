@@ -47,7 +47,7 @@
                     Belum punya akun? <a href="#" id="goToRegister">Daftar di sini</a>
                 </div>
                 <div class="register-link">
-                  <a href="loginadmin.php" id="goToLogin">Login Admin</a>
+                <a href="loginadmin.php" id="goToLogin">Login Admin</a>
                 </div>
             </div>
             
