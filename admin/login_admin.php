@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Data Kelas - Login</title>
-    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/login.css">
 </head>
 <body>
     <header>
@@ -45,9 +45,6 @@
                 
                 <div class="register-link">
                     Belum punya akun? <a href="#" id="goToRegister">Daftar di sini</a>
-                </div>
-                <div class="register-link">
-                <a href="loginadmin.php" id="goToLogin">Login Admin</a>
                 </div>
             </div>
             
@@ -97,8 +94,9 @@
                 <div class="divider"><span>atau</span></div>
                 
                 <div class="register-link">
-                    Sudah punya akun? <a href="login.php" id="goToLogin">Masuk di sini</a>
+                    Sudah punya akun? <a href="#" id="goToLogin">Masuk di sini</a>
                 </div>
+                
             </div>
         </div>
     </main>
@@ -108,6 +106,5 @@
             <p>&copy; 2025 Kelompok-1</p>
         </div>
     </footer>
-    <script src="asset/js/script.js"></script>
 </body>
 </html>

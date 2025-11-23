@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <head>
   <title>Absensi Kelas - User</title>
-  <link rel="stylesheet" href="../asset/css/style1.css">
-  <link rel="stylesheet" href="../asset/css/absensi.css">
+  <link rel="stylesheet" href="../asset/css/mahasiswa.css">
 </head>
 <body>
 
@@ -10,7 +9,7 @@
     <div>
       <div class="logo">Data Kelas</div>
       <ul class="menu">
-        <li onclick="location.href='index.html'">
+        <li onclick="location.href='dashboard_mahasiswa.php'">
           <img src="../asset/img/layout-dashboard.png" class="icon"> Dashboard
         </li>
         <li class="active">
@@ -20,7 +19,7 @@
     </div>
   
     <ul class="menu">
-      <li class="logout" onclick="location.href='../login.html'">
+      <li class="logout" onclick="location.href='login_mahasiswa.php'">
         <img src="../asset/img/log-out.png" class="icon"> Logout
       </li>
     </ul>
@@ -58,7 +57,7 @@
     lucide.createIcons();
   </script>
 
-  <script src="../asset/js/script1.js"></script>
+  <script src="../asset/js/absensi_mahasiswa.js"></script>
 
 </body>
 </html>
