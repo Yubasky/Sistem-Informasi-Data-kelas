@@ -63,9 +63,3 @@ document.getElementById("goToLogin")?.addEventListener("click", function (e) {
   if (registerFormDiv) registerFormDiv.style.display = "none";
   if (loginFormDiv) loginFormDiv.style.display = "block";
 });
-
-// =======================
-//  FORM SUBMIT — PHP HANDLE
-// =======================
-// Tidak ada preventDefault!
-// Biarkan PHP memproses POST.

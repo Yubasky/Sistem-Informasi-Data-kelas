@@ -231,6 +231,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
         </div>
     </footer>
     
-    <script src="../asset/js/login_mahasiswa.js"></script>
+    <script src="../asset/js/login.js"></script>
 </body>
 </html>

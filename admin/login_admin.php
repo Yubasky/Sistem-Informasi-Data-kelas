@@ -1,7 +1,66 @@
+<?php
+// Sesuaikan path koneksi dengan struktur folder Anda
+include '../koneksi/koneksi.php';
+session_start();
+
+$error = '';
+
+// Proses Login Admin
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_admin'])) {
+    $username = isset($_POST['username']) ? trim($_POST['username']) : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
+
+    if (empty($username) || empty($password)) {
+        $error = 'Username dan password harus diisi.';
+    } else {
+        // Query untuk mencari admin berdasarkan username
+        $stmt = mysqli_prepare($koneksi, "SELECT id, username, password FROM admin WHERE username = ? LIMIT 1");
+        
+        if ($stmt) {
+            mysqli_stmt_bind_param($stmt, 's', $username);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            
+            if ($row = mysqli_fetch_assoc($result)) {
+                // Cek apakah password di database sudah di-hash atau masih plain text
+                $db_password = $row['password'];
+                
+                // Coba verifikasi dengan password_verify (jika password di-hash)
+                $is_valid = password_verify($password, $db_password);
+                
+                // Jika tidak valid dengan hash, coba bandingkan langsung (untuk backward compatibility)
+                if (!$is_valid && $password === $db_password) {
+                    $is_valid = true;
+                }
+                
+                if ($is_valid) {
+                    // Login sukses
+                    $_SESSION['admin_id'] = $row['id'];
+                    $_SESSION['admin_username'] = $row['username'];
+                    $_SESSION['is_admin'] = true;
+                    
+                    // Redirect ke halaman admin
+                    header('Location: ../admin/dashboard_admin.php');
+                    exit;
+                } else {
+                    $error = 'Username atau password salah.';
+                }
+            } else {
+                $error = 'Username atau password salah.';
+            }
+            mysqli_stmt_close($stmt);
+        } else {
+            $error = 'Terjadi kesalahan pada server: ' . mysqli_error($koneksi);
+        }
+    }
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <title>Data Kelas - Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Kelas - Login Admin</title>
     <link rel="stylesheet" href="../asset/css/login.css">
 </head>
 <body>
@@ -10,93 +69,45 @@
             <div class="logo">Data Kelas</div>
         </div>
     </header>
+    
     <main class="main-content">
         <div class="container">
             <div class="welcome-text">
                 <h1>Selamat datang di sistem manajemen data kelas</h1>
             </div>
             
+            <!-- Login Admin Form -->
             <div id="login-form" class="form-container">
-                <h2 class="form-title">Masuk ke akun Anda</h2>
-                
-                <div class="user-type-selector">
-                    <div class="user-type active" data-type="mahasiswa">Mahasiswa</div>
-                    <div class="user-type" data-type="admin">Admin</div>
-                </div>
-                
-                <form id="loginForm">
+                <h2 class="form-title">Masuk sebagai Admin</h2>
+
+                <?php if ($error): ?>
+                    <div class="error-message" style="color: #b00020; background: #fdecea; padding: 10px; border-radius: 5px; text-align:center; margin-bottom:15px;">
+                        <?php echo htmlspecialchars($error); ?>
+                    </div>
+                <?php endif; ?>
+
+                <form method="POST" action="">
                     <div class="form-group">
-                        <label for="email">Email atau NIM</label>
-                        <input type="text" id="email" name="email" placeholder="Masukkan email atau NIM" required>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Masukkan username admin" required autocomplete="username">
                     </div>
                     
                     <div class="form-group">
                         <label for="password">Kata Sandi</label>
                         <div class="password-container">
-                            <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required>
+                            <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required autocomplete="current-password">
                             <button type="button" class="show-password" id="showPassword">Tampilkan</button>
                         </div>
                     </div>
                     
-                    <button type="submit" class="btn">Masuk</button>
+                    <button type="submit" name="login_admin" class="btn">Masuk sebagai Admin</button>
                 </form>
                 
                 <div class="divider"><span>atau</span></div>
                 
                 <div class="register-link">
-                    Belum punya akun? <a href="#" id="goToRegister">Daftar di sini</a>
+                    <a href="../mahasiswa/login_mahasiswa.php">Login Mahasiswa</a>
                 </div>
-            </div>
-            
-            <!-- Register Form (Initially Hidden) -->
-            <div id="register-form" class="form-container" style="display: none;">
-                <h2 class="form-title">Buat akun baru</h2>
-                
-                <div class="user-type-selector">
-                    <div class="user-type active" data-type="mahasiswa">Mahasiswa</div>
-                </div>
-                
-                <form id="registerForm">
-                    <div class="form-group">
-                        <label for="reg-name">Nama Lengkap</label>
-                        <input type="text" id="reg-name" name="name" placeholder="Masukkan nama lengkap" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="reg-nim">NIM</label>
-                        <input type="text" id="reg-nim" name="nim" placeholder="Masukkan NIM" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="reg-email">Email</label>
-                        <input type="email" id="reg-email" name="email" placeholder="Masukkan email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="reg-password">Kata Sandi</label>
-                        <div class="password-container">
-                            <input type="password" id="reg-password" name="password" placeholder="Buat kata sandi" required>
-                            <button type="button" class="show-password" id="showRegPassword">Tampilkan</button>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="reg-confirm-password">Konfirmasi Kata Sandi</label>
-                        <div class="password-container">
-                            <input type="password" id="reg-confirm-password" name="confirm-password" placeholder="Konfirmasi kata sandi" required>
-                            <button type="button" class="show-password" id="showRegConfirmPassword">Tampilkan</button>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="btn">Daftar</button>
-                </form>
-                
-                <div class="divider"><span>atau</span></div>
-                
-                <div class="register-link">
-                    Sudah punya akun? <a href="#" id="goToLogin">Masuk di sini</a>
-                </div>
-                
             </div>
         </div>
     </main>
@@ -106,5 +117,7 @@
             <p>&copy; 2025 Kelompok-1</p>
         </div>
     </footer>
+    
+    <script src="../asset/js/login.js"></script>
 </body>
 </html>
