@@ -9,7 +9,7 @@ $success = '';
    ======================================================= */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
-    $login_input = trim($_POST['email']); // email atau NIM
+    $login_input = trim($_POST['email']); 
     $password = $_POST['password'];
 
     if (empty($login_input) || empty($password)) {
@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
         if ($row = mysqli_fetch_assoc($result)) {
 
-            // PASSWORD TANPA HASH
             if ($password === $row['password']) {
 
                 $_SESSION['user_id'] = $row['id'];
@@ -77,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 
     } else {
 
-        // CEK EMAIL/NIM SUDAH ADA?
         $check = mysqli_prepare($koneksi,
             "SELECT id FROM user WHERE email=? OR nim=? LIMIT 1"
         );
@@ -90,7 +88,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
             $error = 'Email atau NIM sudah terdaftar.';
         } else {
 
-            // INSERT password TANPA HASH
             $insert = mysqli_prepare($koneksi,
                 "INSERT INTO user (nama, nim, email, password) 
                  VALUES (?, ?, ?, ?)"
