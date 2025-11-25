@@ -1,23 +1,12 @@
-function editAbsensi(id, currentStatus) {
-  const newStatus = prompt(
-    `Ubah status dari "${currentStatus}" ke:\n\n- Hadir\n- Sakit\n- Izin\n- Alpa`,
-    currentStatus
-  );
-
-  if (!newStatus) return;
-
-  const validStatus = ["Hadir", "Sakit", "Izin", "Alpa"];
-  const capitalizedStatus =
-    newStatus.charAt(0).toUpperCase() + newStatus.slice(1).toLowerCase();
-
-  if (!validStatus.includes(capitalizedStatus)) {
-    alert("Status tidak valid! Pilih: Hadir, Sakit, Izin, atau Alpa");
-    return;
-  }
-
+function editAbsensi(id, currentStatus, currentKeterangan) {
   document.getElementById("update_id").value = id;
-  document.getElementById("update_status").value = capitalizedStatus;
-  document.getElementById("updateForm").submit();
+  document.getElementById("update_status").value = currentStatus;
+  document.getElementById("update_keterangan").value = currentKeterangan;
+  document.getElementById("editModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("editModal").style.display = "none";
 }
 
 function deleteAbsensi(id) {
@@ -26,3 +15,10 @@ function deleteAbsensi(id) {
     document.getElementById("deleteForm").submit();
   }
 }
+
+// Tutup modal ketika klik di luar modal
+document.getElementById("editModal").addEventListener("click", function (e) {
+  if (e.target === this) {
+    closeModal();
+  }
+});
