@@ -1,15 +1,28 @@
-const editButtons = document.querySelectorAll(".btn-edit");
-editButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const newStatus = prompt("Ubah status ke (hadir/sakit/izin/alpa):");
-    if (!newStatus) return;
-    const td = btn.parentElement.previousElementSibling;
-    td.innerHTML = `<span class="status ${newStatus.toLowerCase()}">${
-      newStatus.charAt(0).toUpperCase() + newStatus.slice(1)
-    }</span>`;
-  });
-});
+function editAbsensi(id, currentStatus) {
+  const newStatus = prompt(
+    `Ubah status dari "${currentStatus}" ke:\n\n- Hadir\n- Sakit\n- Izin\n- Alpa`,
+    currentStatus
+  );
 
-document.getElementById("exportBtn").addEventListener("click", () => {
-  alert("Laporan absensi berhasil diekspor!");
-});
+  if (!newStatus) return;
+
+  const validStatus = ["Hadir", "Sakit", "Izin", "Alpa"];
+  const capitalizedStatus =
+    newStatus.charAt(0).toUpperCase() + newStatus.slice(1).toLowerCase();
+
+  if (!validStatus.includes(capitalizedStatus)) {
+    alert("Status tidak valid! Pilih: Hadir, Sakit, Izin, atau Alpa");
+    return;
+  }
+
+  document.getElementById("update_id").value = id;
+  document.getElementById("update_status").value = capitalizedStatus;
+  document.getElementById("updateForm").submit();
+}
+
+function deleteAbsensi(id) {
+  if (confirm("Yakin ingin menghapus data absensi ini?")) {
+    document.getElementById("delete_id").value = id;
+    document.getElementById("deleteForm").submit();
+  }
+}
