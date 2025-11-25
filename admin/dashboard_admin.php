@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin_username'])) {
+  header('Location: login_admin.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <head>
   <title>Admin Dashboard - Data Kelas</title>
@@ -29,7 +36,7 @@
 
   <div class="main">
     <header>
-      <h1>Selamat Datang, Admin </h1>
+    <h1>Selamat Datang, Admin <?php echo $_SESSION['admin_username']; ?>  </h1>
       <br>
     </header>
 

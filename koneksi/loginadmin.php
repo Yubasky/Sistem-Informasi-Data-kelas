@@ -1,5 +1,4 @@
 <?php
-// Sesuaikan path koneksi dengan struktur folder Anda
 include 'koneksi.php';
 
 $error = '';

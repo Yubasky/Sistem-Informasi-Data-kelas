@@ -1,15 +1,23 @@
-const editButtons = document.querySelectorAll(".btn-edit");
-editButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const newStatus = prompt("Ubah status ke (hadir/sakit/izin/alpa):");
-    if (!newStatus) return;
-    const td = btn.parentElement.previousElementSibling;
-    td.innerHTML = `<span class="status ${newStatus.toLowerCase()}">${
-      newStatus.charAt(0).toUpperCase() + newStatus.slice(1)
-    }</span>`;
-  });
-});
+document.getElementById("absensiForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-document.getElementById("exportBtn").addEventListener("click", () => {
-  alert("Laporan absensi berhasil diekspor!");
+  const status = document.querySelector('input[name="status"]:checked').value;
+  const keterangan = document.getElementById("keterangan").value;
+
+  const formData = new FormData();
+  formData.append("status", status);
+  formData.append("keterangan", keterangan);
+
+  fetch("proses_absensi.php", {
+      method: "POST",
+      body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+      if (data.status === "success") {
+          document.getElementById("successMsg").style.display = "block";
+      } else {
+          alert("Gagal menyimpan absensi: " + data.message);
+      }
+  });
 });
