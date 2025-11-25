@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    include '../koneksi/loginmahasiswa.php';
+session_start();
+include '../koneksi/loginmahasiswa.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">
