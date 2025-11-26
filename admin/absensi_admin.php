@@ -165,7 +165,7 @@ if ($query) {
                 <button class="btn-edit" onclick="editAbsensi(<?php echo $absen['id']; ?>, '<?php echo $absen['status']; ?>')">
                   Edit
                 </button>
-                <button class="btn-delete" onclick="deleteAbsensi(<?php echo $absen['id']; ?>)" style="background: #dc3545; margin-left: 5px;">
+                <button class="btn-delete" onclick="deleteAbsensi(<?php echo $absen['id']; ?>)">
                   Hapus
                 </button>
               </td>
