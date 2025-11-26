@@ -15,14 +15,15 @@ $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_absensi'])) {
     $absensi_id = isset($_POST['absensi_id']) ? intval($_POST['absensi_id']) : 0;
     $status = isset($_POST['status']) ? $_POST['status'] : '';
+    $keterangan = isset($_POST['keterangan']) ? trim($_POST['keterangan']) : '';
     
     $allowed_status = ['Hadir', 'Sakit', 'Izin', 'Alpa'];
     if (!in_array($status, $allowed_status)) {
         $error = 'Status tidak valid.';
     } else {
-        $stmt = mysqli_prepare($koneksi, "UPDATE absensi SET status = ? WHERE id = ?");
+        $stmt = mysqli_prepare($koneksi, "UPDATE absensi SET status = ?, keterangan = ? WHERE id = ?");
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, 'si', $status, $absensi_id);
+            mysqli_stmt_bind_param($stmt, 'ssi', $status, $keterangan, $absensi_id);
             if (mysqli_stmt_execute($stmt)) {
                 $success = 'Status absensi berhasil diperbarui!';
             } else {
@@ -162,7 +163,7 @@ if ($query) {
               </td>
               <td><?php echo htmlspecialchars($absen['keterangan'] ?: '-'); ?></td>
               <td>
-                <button class="btn-edit" onclick="editAbsensi(<?php echo $absen['id']; ?>, '<?php echo $absen['status']; ?>')">
+                <button class="btn-edit" onclick="editAbsensi(<?php echo $absen['id']; ?>, '<?php echo $absen['status']; ?>', '<?php echo addslashes($absen['keterangan']); ?>')">
                   Edit
                 </button>
                 <button class="btn-delete" onclick="deleteAbsensi(<?php echo $absen['id']; ?>)">
@@ -177,12 +178,40 @@ if ($query) {
     </section>
   </div>
 
-  <!-- Form Hidden untuk Update Status -->
-  <form id="updateForm" method="POST" style="display: none;">
-    <input type="hidden" name="absensi_id" id="update_id">
-    <input type="hidden" name="status" id="update_status">
-    <input type="hidden" name="update_absensi" value="1">
-  </form>
+  <!-- Modal untuk Edit -->
+  <div id="editModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 10px; width: 400px;">
+      <h3 style="margin-bottom: 20px;">Edit Absensi</h3>
+      <form id="updateForm" method="POST">
+        <input type="hidden" name="absensi_id" id="update_id">
+        <input type="hidden" name="update_absensi" value="1">
+        
+        <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px; font-weight: bold;">Status:</label>
+          <select name="status" id="update_status" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+            <option value="Hadir">Hadir</option>
+            <option value="Sakit">Sakit</option>
+            <option value="Izin">Izin</option>
+            <option value="Alpa">Alpa</option>
+          </select>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 5px; font-weight: bold;">Keterangan:</label>
+          <textarea name="keterangan" id="update_keterangan" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; height: 80px;" placeholder="Keterangan (opsional)"></textarea>
+        </div>
+        
+        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+          <button type="button" onclick="closeModal()" style="padding: 8px 15px; border: 1px solid #ddd; background: #f5f5f5; border-radius: 5px; cursor: pointer;">
+            Batal
+          </button>
+          <button type="submit" style="padding: 8px 15px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Simpan
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- Form Hidden untuk Delete -->
   <form id="deleteForm" method="POST" style="display: none;">
@@ -190,6 +219,44 @@ if ($query) {
     <input type="hidden" name="delete_absensi" value="1">
   </form>
 
-  <script src="../asset/js/absensi_admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    function editAbsensi(id, currentStatus, currentKeterangan) {
+      document.getElementById("update_id").value = id;
+      document.getElementById("update_status").value = currentStatus;
+      document.getElementById("update_keterangan").value = currentKeterangan;
+      document.getElementById("editModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("editModal").style.display = "none";
+    }
+
+    function deleteAbsensi(id) {
+      Swal.fire({
+        title: 'Yakin ingin menghapus?',
+        text: "Data absensi yang dihapus tidak dapat dikembalikan!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Ya, Hapus!',
+        cancelButtonText: 'Batal',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          document.getElementById("delete_id").value = id;
+          document.getElementById("deleteForm").submit();
+        }
+      });
+    }
+
+    // Tutup modal ketika klik di luar modal
+    document.getElementById("editModal").addEventListener("click", function (e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+</script>
 </body>
 </html>
