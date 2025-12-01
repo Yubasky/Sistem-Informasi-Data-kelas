@@ -50,7 +50,7 @@ if (!isset($_SESSION['user_id'])) {
       <div class="card">
         <h2>👋 Logout</h2>
         <p>Terima kasih sudah menggunakan sistem Data Kelas.</p>
-        <a href="login_mahasiswa.php" class="btn btn-danger">Logout</a>
+        <a href="../login_mahasiswa.php" class="btn btn-danger">Logout</a>
       </div>
     </section>
   </main>

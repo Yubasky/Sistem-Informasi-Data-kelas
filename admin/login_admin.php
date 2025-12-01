@@ -54,7 +54,7 @@
                 <div class="divider"><span>atau</span></div>
                 
                 <div class="register-link">
-                    <a href="login_mahasiswa.php">Login Mahasiswa</a>
+                    <a href="../login_mahasiswa.php">Login Mahasiswa</a>
                 </div>
             </div>
         </div>
