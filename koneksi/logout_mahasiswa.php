@@ -2,6 +2,6 @@
 session_start();
 session_unset();
 session_destroy();
-header("Location: login_mahasiswa.php");
+header("Location: ../mahasiswa/login_mahasiswa.php");
 exit;
 ?>
