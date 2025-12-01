@@ -9,6 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Kelas - Login Admin</title>
+    <link rel="icon" href="bookshelf.png">
     <link rel="stylesheet" href="../asset/css/login.css">
 </head>
 <body>
