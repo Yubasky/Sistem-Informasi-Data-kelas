@@ -43,7 +43,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Main Content Styles */
 .main-content {
     display: flex;
     flex-direction: column;
@@ -69,14 +68,13 @@ body {
     color: #666;
 }
 
-/* Form Container */
 .form-container {
     background-color: var(--white);
     border-radius: 8px;
     box-shadow: var(--shadow);
     padding: 24px;
-    width: 100%;
-    max-width: 420px; 
+    max-width: 520px !important;
+    width: 100%; 
     margin: 0 auto;  
     margin-bottom: 20px;
 }

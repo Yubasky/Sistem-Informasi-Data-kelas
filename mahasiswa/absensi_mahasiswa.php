@@ -95,7 +95,7 @@ if ($query) {
     </div>
   
     <ul class="menu">
-        <li class="logout" onclick="location.href='login_mahasiswa.php'">
+          <li class="logout" onclick="location.href='logout_mahasiswa.php'">
           <img src="../asset/img/log-out.png" class="icon"> Logout
         </li>
     </ul>

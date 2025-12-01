@@ -37,7 +37,7 @@ if (isset($_GET['edit'])) {
       <li class="active">
         <img src="../asset/img/wallet.png" class="icon"> Uang Kas
       </li>
-      <li onclick="location.href='login_admin.php'" class="logout">
+      <li onclick="location.href='logout.php'" class="logout">
         <img src="../asset/img/log-out.png" class="icon"> Logout
       </li>
     </ul>

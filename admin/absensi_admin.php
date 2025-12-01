@@ -92,7 +92,7 @@ if ($query) {
         Uang Kas
       </li>
 
-      <li class="logout" onclick="location.href='login_admin.php'">
+      <li onclick="location.href='logout.php'" class="logout">
         <img src="../asset/img/log-out.png" class="icon"> Logout
       </li>
     </ul>

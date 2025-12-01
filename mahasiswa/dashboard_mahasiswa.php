@@ -15,7 +15,6 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
 
-  <!-- Sidebar -->
   <div class="sidebar">
     <h2 class="logo">Data Kelas</h2>
     <ul class="menu">
