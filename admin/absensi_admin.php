@@ -124,9 +124,9 @@ if ($query) {
             <label for="tanggal">Pilih Tanggal: </label>
             <input type="date" name="tanggal" id="tanggal" value="<?php echo htmlspecialchars($filter_tanggal); ?>" onchange="this.form.submit()">
           </form>
-          <button class="btn" onclick="window.print()">
-            <i data-lucide="download"></i> Export Laporan
-          </button>
+          <a href="export_absensi.php?tanggal=<?php echo $filter_tanggal; ?>" class="btn">
+              Export CSV
+          </a>
         </div>
       </div>
 

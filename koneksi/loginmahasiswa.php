@@ -5,11 +5,11 @@ $error = '';
 $success = '';
 
 /* =======================================================
-   LOGIN
+   LOGIN — SUDAH MENGGUNAKAN password_verify()
    ======================================================= */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
-    $login_input = trim($_POST['email']); 
+    $login_input = trim($_POST['email']);
     $password = $_POST['password'];
 
     if (empty($login_input) || empty($password)) {
@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     } else {
 
         $stmt = mysqli_prepare($koneksi,
-            "SELECT id, nama, nim, email, password FROM user 
+            "SELECT id, nama, nim, email, password 
+             FROM user 
              WHERE email = ? OR nim = ? LIMIT 1"
         );
 
@@ -27,9 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
         if ($row = mysqli_fetch_assoc($result)) {
 
-            if ($password === $row['password']) {
+            // COCOKKAN PASSWORD DENGAN HASH
+            if (password_verify($password, $row['password'])) {
 
-                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['user_id']   = $row['id'];
                 $_SESSION['user_name'] = $row['nama'];
                 $_SESSION['user_nim']  = $row['nim'];
                 $_SESSION['user_email']= $row['email'];
@@ -50,15 +52,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 }
 
 /* =======================================================
-   REGISTRASI — TANPA HASH SESUAI PERMINTAAN YUU
+   REGISTRASI — PASSWORD DI-HASH DULU
    ======================================================= */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 
-    $name = trim($_POST['name']);
-    $nim = trim($_POST['nim']);
-    $email = trim($_POST['email']);
+    $name     = trim($_POST['name']);
+    $nim      = trim($_POST['nim']);
+    $email    = trim($_POST['email']);
     $password = $_POST['password'];
-    $confirm = $_POST['confirm-password'];
+    $confirm  = $_POST['confirm-password'];
 
     if (empty($name) || empty($nim) || empty($email) ||
         empty($password) || empty($confirm)) {
@@ -76,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 
     } else {
 
+        // Cek apakah email atau NIM sudah ada
         $check = mysqli_prepare($koneksi,
             "SELECT id FROM user WHERE email=? OR nim=? LIMIT 1"
         );
@@ -88,13 +91,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
             $error = 'Email atau NIM sudah terdaftar.';
         } else {
 
+            // HASH PASSWORD DI SINI
+            $password_hashed = password_hash($password, PASSWORD_DEFAULT);
+
+            // Simpan ke database
             $insert = mysqli_prepare($koneksi,
                 "INSERT INTO user (nama, nim, email, password) 
                  VALUES (?, ?, ?, ?)"
             );
 
             mysqli_stmt_bind_param($insert, 'ssss',
-                $name, $nim, $email, $password
+                $name, $nim, $email, $password_hashed
             );
 
             if (mysqli_stmt_execute($insert)) {

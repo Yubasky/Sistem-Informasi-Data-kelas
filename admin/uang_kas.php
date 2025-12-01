@@ -88,6 +88,12 @@ if (isset($_GET['edit'])) {
     <section class="absensi-section">
       <div class="table-header">
         <h2>Data Pembayaran Uang Kas</h2>
+
+        <div class="table-actions">
+        <a href="export_kas.php" class="btn">
+            Export CSV
+        </a>
+    </div>
       </div>
 
       <table class="absensi-table">
