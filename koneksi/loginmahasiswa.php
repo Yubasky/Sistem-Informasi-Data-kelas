@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
                 $_SESSION['user_nim']  = $row['nim'];
                 $_SESSION['user_email']= $row['email'];
 
-                header("Location: ../mahasiswa/dashboard_mahasiswa.php");
+                header("Location: ./mahasiswa/dashboard_mahasiswa.php");
                 exit;
 
             } else {

@@ -1,6 +1,6 @@
     <?php
     session_start();
-    include '../koneksi/loginmahasiswa.php';
+    include './koneksi/loginmahasiswa.php';
     ?>
     <!DOCTYPE html>
     <html lang="id">
@@ -8,8 +8,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Data Kelas - Login Mahasiswa</title>
-        <link rel="icon" href="../asset/img/bookshelf.png">
-        <link rel="stylesheet" href="../asset/css/login.css">
+        <link rel="icon" href="./asset/img/bookshelf.png">
+        <link rel="stylesheet" href="./asset/css/login.css">
     </head>
     <body>
         <header>
@@ -58,7 +58,7 @@
                     </form>
 
                     <div class="register-link">
-                        Lupa sandi akun? <a href="lupa_password.php">Ubah di sini</a>
+                        Lupa sandi akun? <a href="./mahasiswa/lupa_password.php">Ubah di sini</a>
                     </div>
 
                     <div class="divider"><span>atau</span></div>
@@ -67,7 +67,7 @@
                         Belum punya akun? <a href="#" id="goToRegister">Daftar di sini</a>
                     </div>
                     <div class="register-link">
-                        <a href="../admin/login_admin.php">Login Admin</a>
+                        <a href="./admin/login_admin.php">Login Admin</a>
                     </div>
                 </div>
                 
@@ -135,6 +135,6 @@
             </div>
         </footer>
         
-        <script src="../asset/js/login.js"></script>
+        <script src="./asset/js/login.js"></script>
     </body>
     </html>
