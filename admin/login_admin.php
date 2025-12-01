@@ -24,7 +24,6 @@
                 <h1>Selamat datang di sistem manajemen data kelas</h1>
             </div>
             
-            <!-- Login Admin Form -->
             <div id="login-form" class="form-container">
                 <h2 class="form-title">Masuk sebagai Admin</h2>
 

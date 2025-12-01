@@ -32,7 +32,7 @@ if (!isset($_SESSION['admin_username'])) {
       <!-- Arahkan ke logout.php yang benar -->
       <li onclick="location.href='logout_admin.php'" class="logout">
         <img src="../asset/img/log-out.png" class="icon">
-        logout_admin
+        Logout
       </li>
     </ul>
   </div>
