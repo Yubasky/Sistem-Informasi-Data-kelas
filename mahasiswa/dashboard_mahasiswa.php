@@ -24,7 +24,7 @@ if (!isset($_SESSION['user_id'])) {
       <li onclick="location.href='absensi_mahasiswa.php'">
         <img src="../asset/img/clipboard-list.png" class="icon"> Absensi Kelas
       </li>
-      <li class="logout" onclick="location.href='logout_mahasiswa.php'">
+      <li class="logout" onclick="location.href='../koneksi/logout_mahasiswa.php'">
         <img src="../asset/img/log-out.png" class="icon"> Logout
       </li>
     </ul>

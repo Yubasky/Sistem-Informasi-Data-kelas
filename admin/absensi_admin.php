@@ -4,14 +4,13 @@ session_start();
 
 // Cek apakah admin sudah login
 if (!isset($_SESSION['admin_id'])) {
-    header('Location: ../logout/login_admin.php');
+    header('Location: ../koneksi/login_admin.php');
     exit;
 }
 
 $success = '';
 $error = '';
 
-// Proses update status absensi
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_absensi'])) {
     $absensi_id = isset($_POST['absensi_id']) ? intval($_POST['absensi_id']) : 0;
     $status = isset($_POST['status']) ? $_POST['status'] : '';
@@ -92,7 +91,7 @@ if ($query) {
         Uang Kas
       </li>
 
-      <li onclick="location.href='logout.php'" class="logout">
+      <li onclick="location.href='../koneksi/logout_admin.php'" class="logout">
         <img src="../asset/img/log-out.png" class="icon"> Logout
       </li>
     </ul>
@@ -124,7 +123,7 @@ if ($query) {
             <label for="tanggal">Pilih Tanggal: </label>
             <input type="date" name="tanggal" id="tanggal" value="<?php echo htmlspecialchars($filter_tanggal); ?>" onchange="this.form.submit()">
           </form>
-          <a href="export_absensi.php?tanggal=<?php echo $filter_tanggal; ?>" class="btn">
+          <a href="../koneksi/export_absensi.php?tanggal=<?php echo $filter_tanggal; ?>" class="btn">
               Export CSV
           </a>
         </div>

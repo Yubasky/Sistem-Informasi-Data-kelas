@@ -37,7 +37,7 @@ if (isset($_GET['edit'])) {
       <li class="active">
         <img src="../asset/img/wallet.png" class="icon"> Uang Kas
       </li>
-      <li onclick="location.href='logout.php'" class="logout">
+      <li onclick="location.href='../koneksi/logout_admin.php'" class="logout">
         <img src="../asset/img/log-out.png" class="icon"> Logout
       </li>
     </ul>
@@ -90,7 +90,7 @@ if (isset($_GET['edit'])) {
         <h2>Data Pembayaran Uang Kas</h2>
 
         <div class="table-actions">
-        <a href="export_kas.php" class="btn">
+        <a href="../koneksi/export_kas.php" class="btn">
             Export CSV
         </a>
     </div>

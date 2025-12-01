@@ -30,9 +30,9 @@ if (!isset($_SESSION['admin_username'])) {
       </li>
 
       <!-- Arahkan ke logout.php yang benar -->
-      <li onclick="location.href='logout.php'" class="logout">
+      <li onclick="location.href='logout_admin.php'" class="logout">
         <img src="../asset/img/log-out.png" class="icon">
-        Logout
+        logout_admin
       </li>
     </ul>
   </div>
