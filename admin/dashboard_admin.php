@@ -10,7 +10,7 @@ if (!isset($_SESSION['admin_username'])) {
 <head>
   <meta charset="UTF-8">
   <title>Admin Dashboard - Data Kelas</title>
-  <link rel="icon" href="bookshelf.png">
+  <link rel="icon" href="../asset/img/bookshelf.png">
   <link rel="stylesheet" href="../asset/css/admin.css">
 </head>
 <body>

@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard User - Data Kelas</title>
-  <link rel="icon" href="bookshelf.png">
+  <link rel="icon" href="../asset/img/bookshelf.png">
   <link rel="stylesheet" href="../asset/css/mahasiswa.css">
 </head>
 <body>

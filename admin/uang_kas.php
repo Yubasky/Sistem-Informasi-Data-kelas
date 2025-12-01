@@ -19,7 +19,7 @@ if (isset($_GET['edit'])) {
 <head>
   <meta charset="UTF-8">
   <title>Uang Kas Kelas - Admin</title>
-  <link rel="icon" href="bookshelf.png">
+  <link rel="icon" href="../asset/img/bookshelf.png">
   <link rel="stylesheet" href="../asset/css/uang_kas.css">
   <link rel="stylesheet" href="../asset/css/admin.css">
 </head>
