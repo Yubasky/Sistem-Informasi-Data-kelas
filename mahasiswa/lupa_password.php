@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="divider"><span>atau</span></div>
 
             <div class="register-link">
-                <a href="../login_mahasiswa.php">Kembali ke Login</a>
+                <a href="../index.php">Kembali ke Login</a>
             </div>
 
         </div>

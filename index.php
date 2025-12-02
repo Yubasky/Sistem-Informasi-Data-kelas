@@ -1,4 +1,4 @@
-    <?php
+<?php
     session_start();
     include './koneksi/loginmahasiswa.php';
     ?>
@@ -58,7 +58,7 @@
                     </form>
 
                     <div class="register-link">
-                        Lupa sandi akun? <a href="./mahasiswa/lupa_password.php">Ubah di sini</a>
+                        Lupa sandi akun? <a href="../mahasiswa/lupa_password.php">Ubah di sini</a>
                     </div>
 
                     <div class="divider"><span>atau</span></div>
@@ -67,7 +67,7 @@
                         Belum punya akun? <a href="#" id="goToRegister">Daftar di sini</a>
                     </div>
                     <div class="register-link">
-                        <a href="./admin/login_admin.php">Login Admin</a>
+                        <a href="../admin/login_admin.php">Login Admin</a>
                     </div>
                 </div>
                 
