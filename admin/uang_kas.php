@@ -2,7 +2,6 @@
 session_start();
 include '../koneksi/koneksi.php';
 
-// Jika mode edit dijalankan
 $editMode = false;
 $editData = null;
 

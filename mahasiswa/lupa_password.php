@@ -36,10 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_stmt_bind_param($update, 'ss', $hashed, $nim);
 
             if (mysqli_stmt_execute($update)) {
-                $success = "Password berhasil direset! Silakan login dengan password baru.";
+                echo "<script>
+                    alert('Password berhasil direset! Silakan login dengan password baru.');
+                    window.location.href = '../index.php';
+                </script>";
+                exit;
             } else {
                 $error = "Gagal mengupdate password.";
             }
+            
 
             mysqli_stmt_close($update);
         }
