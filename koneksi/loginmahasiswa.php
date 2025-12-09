@@ -28,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
         if ($row = mysqli_fetch_assoc($result)) {
 
-            // COCOKKAN PASSWORD DENGAN HASH
             if (password_verify($password, $row['password'])) {
 
                 $_SESSION['user_id']   = $row['id'];
@@ -78,7 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 
     } else {
 
-        // Cek apakah email atau NIM sudah ada
         $check = mysqli_prepare($koneksi,
             "SELECT id FROM user WHERE email=? OR nim=? LIMIT 1"
         );

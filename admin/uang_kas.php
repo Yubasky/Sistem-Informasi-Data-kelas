@@ -60,10 +60,10 @@ if (isset($_GET['edit'])) {
             <input type="hidden" name="id" value="<?= $editData['id'] ?>">
         <?php endif; ?>
 
-        <input type="text" name="nim" placeholder="NIM Mahasiswa" required
-               value="<?= $editMode ? $editData['nim'] : '' ?>">
+        <input type="text" id="nim" name="nim" placeholder="NIM Mahasiswa" required
+              value="<?= $editMode ? $editData['nim'] : '' ?>">
 
-        <input type="text" name="nama" placeholder="Nama Mahasiswa" required
+        <input type="text" id="nama" name="nama" placeholder="Nama Mahasiswa" required readonly
                value="<?= $editMode ? $editData['nama'] : '' ?>">
 
         <input type="number" name="jumlah" placeholder="Jumlah Bayar (Rp)" required
@@ -141,4 +141,27 @@ while ($row = mysqli_fetch_assoc($query)) :
 </div>
 
 </body>
+<script>
+document.getElementById('nim').addEventListener('keyup', function () {
+    let nim = this.value;
+    let namaField = document.getElementById('nama');
+
+    if (nim.length > 0) {
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "../koneksi/get_nama.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        xhr.onload = function () {
+            if (this.status === 200) {
+                namaField.value = this.responseText;
+            }
+        };
+
+        xhr.send("nim=" + nim);
+    } else {
+        namaField.value = "";
+    }
+});
+</script>
+
 </html>
